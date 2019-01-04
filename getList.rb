@@ -8,9 +8,14 @@ def getTicketList (subDomain,accessToken)
   params = { :access_token => accessToken}
   uri.query = URI.encode_www_form(params)
   res = Net::HTTP.get_response(uri)
-  obj = JSON.parse(res.body) if res.is_a?(Net::HTTPSuccess)
-  tickets = obj['tickets']
-  return tickets
+  if res.is_a?(Net::HTTPSuccess)
+    obj = JSON.parse(res.body)
+    tickets = obj['tickets']
+    return tickets
+  else
+    return nil
+  end
+
 end
 
 def printTicket(tickets)
@@ -30,7 +35,7 @@ def printDetailTicket(tickets)
   while input.chomp != "Q"
     num = input.to_i
     if num<=0 || num>tickets.count
-      puts "Error, invalid input."
+      puts "Error, invalid input. Input must be Integer and in the index range: 1 - #{tickets.count}"
       puts "Which ticket for more detail, input Q to exit"
       input = gets
       next
@@ -41,5 +46,9 @@ def printDetailTicket(tickets)
   end
 end
 tickets = getTicketList(subDomain,accessToken)
-printTicket(tickets)
-printDetailTicket(tickets)
+if tickets
+  printTicket(tickets)
+  printDetailTicket(tickets)
+else
+  puts "get tickets failed"
+end
