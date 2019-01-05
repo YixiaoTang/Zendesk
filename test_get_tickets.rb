@@ -11,14 +11,12 @@ else
   puts "get tickets failed"
 end
 
-accessToken = "e8b899551f89ad07727cf5259cf4e92a1eabf5f291e3c61f6dc91011965536bf"
-subDomain = "z3nsqidexercise"
+subDomain = "z3nsqidexercise"#wrong subDomain
 obj2 = GetTickets.new(subDomain,accessToken)
 
 tickets = obj2.getTicketList()
 if tickets
-  obj2.printTicket(tickets)
-  obj2.printDetailTicket(tickets)
 else
+  # It should fail
   puts "get tickets failed"
 end
