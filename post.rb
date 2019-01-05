@@ -5,7 +5,7 @@ require 'json'
 accessToken = "e8b899551f89ad07727cf5259cf4e92a1eabf5f291e3c61f6dc91011965536bf"
 subDomain = "z3nsqidexercise-yixiao"
 
-def createTicket(subDomain,accessToken)
+def createTicket(subDomain, accessToken)
   my_hash = {:ticket => {}}
   puts "Input subject of ticket"
   subject = gets
@@ -17,8 +17,8 @@ def createTicket(subDomain,accessToken)
   priority = gets
   my_hash[:ticket]['priority'] = priority.chomp
 
-  uri = URI('https://'+subDomain+'.zendesk.com/api/v2/tickets.json')
-  params = { :access_token => accessToken}
+  uri = URI('https://' + subDomain + '.zendesk.com/api/v2/tickets.json')
+  params = {:access_token => accessToken}
   uri.query = URI.encode_www_form(params)
   header = {'Content-Type': 'application/json'}
   http = Net::HTTP.new(uri.host, uri.port)
@@ -29,7 +29,7 @@ def createTicket(subDomain,accessToken)
   return response
 end
 
-res = createTicket(subDomain,accessToken)
+res = createTicket(subDomain, accessToken)
 if res.is_a?(Net::HTTPSuccess)
   puts "Success ! The response is: "
   pp JSON.parse(res.body)

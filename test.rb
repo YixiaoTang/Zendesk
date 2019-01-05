@@ -1,5 +1,4 @@
-a = "100"
-puts a.to_i
+require 'get_tickets'
 my_hash = {:ticket => {}}
 puts 'Input subject'
 subject = gets
