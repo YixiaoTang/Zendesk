@@ -1,20 +1,29 @@
 require_relative 'get_tickets'
-accessToken = "e8b899551f89ad07727cf5259cf4e92a1eabf5f291e3c61f6dc91011965536bf"
-subDomain = "z3nsqidexercise-yixiao"
-obj1 = GetTickets.new(subDomain,accessToken)
+access_token = "e8b899551f89ad07727cf5259cf4e92a1eabf5f291e3c61f6dc91011965536bf"
+sub_domain = "z3nsqidexercise-yixiao"
+obj1 = GetTickets.new(sub_domain,access_token)
 
-tickets = obj1.getTicketList()
+tickets = obj1.get_ticket_list
 if tickets
-  obj1.printTicket(tickets)
-  obj1.printDetailTicket(tickets)
+  obj1.print_ticket(tickets)
+  obj1.print_detail_ticket(tickets)
 else
   puts "get tickets failed"
 end
 
-subDomain = "z3nsqidexercise"#wrong subDomain
-obj2 = GetTickets.new(subDomain,accessToken)
+sub_domain = "z3nsqidexercise"#wrong subDomain
+obj2 = GetTickets.new(sub_domain,access_token)
+tickets = obj2.get_ticket_list
+if tickets
+else
+  # It should fail
+  puts "get tickets failed"
+end
 
-tickets = obj2.getTicketList()
+access_token = "Ae8b899551f89ad07727cf5259cf4e92a1eabf5f291e3c61f6dc91011965536bf"
+sub_domain = "z3nsqidexercise-yixiao"
+obj3 = GetTickets.new(sub_domain,access_token)
+tickets = obj3.get_ticket_list
 if tickets
 else
   # It should fail

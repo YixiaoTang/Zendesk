@@ -1,14 +1,12 @@
 require 'net/http'
 require 'pp'
 require 'json'
-
-
 class GetTickets
   def initialize(subDomain,accessToken)
   @accessToken = accessToken
   @subDomain = subDomain
   end
-  def getTicketList ()
+  def get_ticket_list
     uri = URI('https://' + @subDomain + '.zendesk.com/api/v2/tickets.json')
     params = {:access_token => @accessToken}
     uri.query = URI.encode_www_form(params)
@@ -22,8 +20,8 @@ class GetTickets
     end
   end
 
-  def printTicket(tickets)
-    puts "ticket_num: #{tickets.count}"
+  def print_ticket(tickets)
+    puts "***  ticket_num: #{tickets.count}  ***"
     puts "---------------------------------------"
     for i in 1..tickets.count
       puts "ticket_index: #{i}"
@@ -33,8 +31,8 @@ class GetTickets
     end
   end
 
-  def printDetailTicket(tickets)
-    puts "Which ticket for more detail, input the ticket index(input Q to exit)"
+  def print_detail_ticket(tickets)
+    puts "Which ticket for more detail, input the ticket index(input Q to quit)"
     input = gets
     while input.chomp != "Q"
       num = input.to_i
