@@ -27,6 +27,7 @@ class GetTickets
       puts "ticket_index: #{i}"
       puts "subject: #{tickets[i - 1]['subject']}"
       puts "description: #{tickets[i - 1]['description']}"
+      puts "status: #{tickets[i-1]['status']}"
       puts "---------------------------------------"
     end
   end
