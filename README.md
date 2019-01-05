@@ -15,3 +15,4 @@ This project based on Zendesk API to implement two basic functions: list all tic
 1. When list tickets, user can select one ticket, it must be integer from 1 to count of tickets. 
 2. Empty description will induce post fail.
 ## Unexpected input
+![](https://github.com/YixiaoTang/Zendesk/blob/master/Unexpected%20input.png)
