@@ -16,5 +16,6 @@ This project based on Zendesk API to implement two basic functions: list all tic
 2. Empty description will induce post fail.
 ## Unexpected input
 ### If the sub_domain and access_token is wrong, request will fail.
+### Two Screenshots show invalid input in application
 ![](https://github.com/YixiaoTang/Zendesk/blob/master/Unexpected%20input.png)
 ![](https://github.com/YixiaoTang/Zendesk/blob/master/Empty%20description.png)
