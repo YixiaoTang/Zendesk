@@ -3,12 +3,12 @@ require 'pp'
 require 'json'
 class GetTickets
   def initialize(subDomain,accessToken)
-  @accessToken = accessToken
-  @subDomain = subDomain
+  @access_token = accessToken
+  @sub_domain = subDomain
   end
   def get_ticket_list
-    uri = URI('https://' + @subDomain + '.zendesk.com/api/v2/tickets.json')
-    params = {:access_token => @accessToken}
+    uri = URI('https://' + @sub_domain + '.zendesk.com/api/v2/tickets.json')
+    params = {:access_token => @access_token}
     uri.query = URI.encode_www_form(params)
     res = Net::HTTP.get_response(uri)
     if res.is_a?(Net::HTTPSuccess)
