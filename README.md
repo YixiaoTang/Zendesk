@@ -11,9 +11,9 @@ After listing all tickets, user can delete or update one of them.
 **list_ticket.rb** Combine GetTickets, DeleteTicket and UpdateTicket as sub function.  
 **test_files** are test files for classes.  
 ## How to run
-1. Set the sub_domain and access_token by the first function. Application will use default valuable if no new authorization account.
+1. Set the sub_domain and access_token first. Application will use default valuable if no new authorization account.
 2. Select function, list tickets or create a new one.
-3. For list tickets, select print detail inf for one ticket, delete, or update status.
+3. After listing tickets, user can select one ticket to print detail inf, delete it, or update its status.
 4. Check authorization when verification fail.
 
 ## Input format
