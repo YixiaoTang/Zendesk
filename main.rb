@@ -28,8 +28,11 @@ while 1
       if input.chomp == 'D'
         pp JSON.parse(res.body)
       end
+    elsif res.code == "404" or res.code == "401"
+      puts "Post failed. Invalid authorization information"
     else
-      puts "Post failed. Please check input and authorization information"
+      puts res.code
+      puts "Post failed. Description cannot be blank"
     end
   elsif fun == 4
     puts "Subdomain: #{sub_domain}"
