@@ -10,7 +10,7 @@ class UpdateTicket
 
   def update_ticket(id)
     ticket = {:ticket => {}}
-    puts "Input new status, Possible values: \"new\", \"open\", \"pending\", \"hold\", \"solved\", \"closed\" "
+    puts "Input new status, Possible values: \"new\", \"open\", \"pending\", \"solved\", \"closed\" "
     subject = gets
     ticket[:ticket]['status'] = subject.chomp
     uri = URI('https://' + @sub_domain + ".zendesk.com/api/v2/tickets/#{id}.json")

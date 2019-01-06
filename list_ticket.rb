@@ -1,5 +1,5 @@
 require_relative 'get_tickets'
-require_relative 'delete_Ticket'
+require_relative 'delete_ticket'
 require_relative 'update_ticket'
 
 class ListTickets
@@ -15,13 +15,13 @@ Select next step:\n P Print detail information of specific ticket \n D Delete sp
     get_tickets = GetTickets.new(@sub_domain, @access_token)
     tickets = get_tickets.get_ticket_list
     if tickets
-      get_tickets.print_ticket(tickets)
+      print_ticket(tickets)
       while 1
         puts @@list_ticket_introduction
         fun = gets
         fun = fun.chomp
         if fun == 'P'
-          get_tickets.print_detail_ticket(tickets)
+          print_detail_ticket(tickets)
         elsif fun == 'D'
           delete_one_ticket(tickets)
           break
@@ -39,6 +39,35 @@ Select next step:\n P Print detail information of specific ticket \n D Delete sp
     end
   end
 
+  def print_ticket(tickets)
+    puts "***  ticket_num: #{tickets.count}  ***"
+    puts "---------------------------------------"
+    for i in 1..tickets.count
+      puts "ticket_index: #{i}"
+      puts "subject: #{tickets[i - 1]['subject']}"
+      puts "description: #{tickets[i - 1]['description']}"
+      puts "status: #{tickets[i-1]['status']}"
+      puts "---------------------------------------"
+    end
+  end
+
+  def print_detail_ticket(tickets)
+    puts "Which ticket for more detail, input the ticket index 1 - #{tickets.count}(input Q to quit)"
+    input = gets
+    while input.chomp != "Q"
+      num = input.to_i
+      if num <= 0 || num > tickets.count
+        puts "Error, invalid input. Input must be Integer and in the index range: 1 - #{tickets.count}"
+        puts "Which ticket for more detail, input Q to exit"
+        input = gets
+        next
+      end
+      pp tickets.at(num - 1)
+      puts "Which ticket for more detail, input the ticket index 1 - #{tickets.count}(input Q to quit)"
+      input = gets
+    end
+  end
+
   def delete_one_ticket(tickets)
     delete_ticket = DeleteTicket.new(@sub_domain,@access_token)
     puts "Which ticket to delete, input the ticket index 1 - #{tickets.count}(input Q to quit)"
@@ -48,7 +77,6 @@ Select next step:\n P Print detail information of specific ticket \n D Delete sp
       if num <= 0 || num > tickets.count
         puts "Error, invalid input. Input must be Integer and in the index range: 1 - #{tickets.count} \nPlease re-enter the index"
         input = gets
-        next
       else
         res = delete_ticket.delete_ticket(tickets.at(num-1)['id'].to_i)
         if res.is_a?(Net::HTTPSuccess)
@@ -83,3 +111,4 @@ Select next step:\n P Print detail information of specific ticket \n D Delete sp
     end
   end
 end
+

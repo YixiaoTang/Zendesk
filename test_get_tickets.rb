@@ -5,8 +5,8 @@ obj1 = GetTickets.new(sub_domain,access_token)
 
 tickets = obj1.get_ticket_list
 if tickets
-  obj1.print_ticket(tickets)
-  obj1.print_detail_ticket(tickets)
+  # it should succeed
+  puts"Success"
 else
   puts "get tickets failed"
 end
@@ -20,7 +20,7 @@ else
   puts "get tickets failed"
 end
 
-access_token = "Ae8b899551f89ad07727cf5259cf4e92a1eabf5f291e3c61f6dc91011965536bf"
+access_token = "Ae8b899551f89ad07727cf5259cf4e92a1eabf5f291e3c61f6dc91011965536bf"#wrong token
 sub_domain = "z3nsqidexercise-yixiao"
 obj3 = GetTickets.new(sub_domain,access_token)
 tickets = obj3.get_ticket_list

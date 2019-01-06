@@ -5,6 +5,7 @@ obj1 = CreateTicket.new(sub_domain, access_token)
 
 res = obj1.create_ticket
 if res.is_a?(Net::HTTPSuccess)
+  #success when description is not empty
   puts "Success ! Input D to show response, any other input to quit "
   input = gets
   if input.chomp == 'D'

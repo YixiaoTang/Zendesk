@@ -1,12 +1,11 @@
 require_relative 'create_ticket'
 require_relative 'list_ticket'
-
+# default authorization
 sub_domain = "z3nsqidexercise-yixiao"
 access_token = "e8b899551f89ad07727cf5259cf4e92a1eabf5f291e3c61f6dc91011965536bf"
 main_introduction = "---------------------------------------------
 Select method:\n<1> Set subdomain and access token \n<2> List tickets \n<3> Create new ticket \n<4> Show subdomain and access token \n<5> Exit
 ---------------------------------------------"
-
 
 while 1
   puts main_introduction
@@ -18,7 +17,7 @@ while 1
     puts "Input access_token"
     access_token = gets.chomp
   elsif fun == 2
-    list_ticket = ListTickets.new(sub_domain,access_token)
+    list_ticket = ListTickets.new(sub_domain, access_token)
     list_ticket.list_ticket
   elsif fun == 3
     create_ticket = CreateTicket.new(sub_domain, access_token)
