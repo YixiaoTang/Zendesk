@@ -18,10 +18,10 @@ After listing all tickets, user can delete or update one of them.
 
 ## Input format
 1. After listing tickets, the user can select one ticket, it must be an integer from 1 to count of tickets. 
-2. Empty description if creation will induce post fail.
+2. Empty description of creation will induce post fail.
 ## Unexpected input
 ### Use response status code to verify token.
 ### Unexpected input will alert and ask for re-enter.
 ### Two Screenshots to show invalid input in the application.
 ![](https://github.com/YixiaoTang/Zendesk/blob/master/Unexpected%20input.png)
-![](https://github.com/YixiaoTang/Zendesk/blob/master/Empty%20description.png)
+![](https://github.com/YixiaoTang/Zendesk/blob/master/invalid%20authorization.png)
