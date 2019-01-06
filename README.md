@@ -4,11 +4,11 @@ This project based on Zendesk API to implement two basic functions: list all tic
 After listing all tickets, user can delete or update one of them.
 ## files
 **main.rb** Main file, use ListTickets and CreateTicket.  
-**get_tickets.rb** GetTickets class, which has three methods to do Get request and show tickets.  
+**get_tickets.rb** GetTickets class for get request.  
 **create_ticket.rb** Include CreateTicket class.  
 **delete_ticket.rb** Include DeleteTicket class to delete one ticket by id.  
 **update_ticket.rb** Include UpdateTicket class to update status of one ticket by id.  
-**list_ticket** Combine GetTickets, DeleteTicket and UpdateTicket as sub function.  
+**list_ticket.rb** Combine GetTickets, DeleteTicket and UpdateTicket as sub function.  
 **test_files** are test files for classes.  
 ## How to run
 1. Set the sub_domain and access_token in main file. Application will use default valuable if no new authorization.
