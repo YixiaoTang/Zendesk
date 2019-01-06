@@ -1,6 +1,6 @@
 Zendesk coding challenge
 ----
-This project based on Zendesk API to implement two basic functions: list all tickets in one specific account and create new ticket.  
+This project based on Zendesk API to implement two basic functions: list all tickets in one specific account and create a new ticket.  
 After listing all tickets, user can delete or update one of them.
 ## files
 **main.rb** Main file, use ListTickets and CreateTicket.  
@@ -17,10 +17,10 @@ After listing all tickets, user can delete or update one of them.
 4. Check authorization when verification fail.
 
 ## Input format
-1. After listing tickets, user can select one ticket, it must be integer from 1 to count of tickets. 
+1. After listing tickets, the user can select one ticket, it must be an integer from 1 to count of tickets. 
 2. Empty description if creation will induce post fail.
 ## Unexpected input
-### If the sub_domain and access_token is wrong, request will fail.
-### Two Screenshots show invalid input in application
+### If the sub_domain and access_token are wrong, the request will fail.
+### Two Screenshots show invalid input in the application
 ![](https://github.com/YixiaoTang/Zendesk/blob/master/Unexpected%20input.png)
 ![](https://github.com/YixiaoTang/Zendesk/blob/master/Empty%20description.png)
