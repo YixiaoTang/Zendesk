@@ -20,7 +20,8 @@ After listing all tickets, user can delete or update one of them.
 1. After listing tickets, the user can select one ticket, it must be an integer from 1 to count of tickets. 
 2. Empty description if creation will induce post fail.
 ## Unexpected input
-### If the sub_domain and access_token are wrong, the request will fail.
-### Two Screenshots show invalid input in the application
+### Use response status code to verify token.
+### Unexpected input will alert and ask for re-enter.
+### Two Screenshots to show invalid input in the application.
 ![](https://github.com/YixiaoTang/Zendesk/blob/master/Unexpected%20input.png)
 ![](https://github.com/YixiaoTang/Zendesk/blob/master/Empty%20description.png)
