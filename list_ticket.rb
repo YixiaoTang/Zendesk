@@ -75,7 +75,7 @@ Select next step:\n P Print detail information of specific ticket \n D Delete sp
     while input.chomp != "Q"
       num = input.to_i
       if num <= 0 || num > tickets.count
-        puts "Error, invalid input. Input must be Integer and in the index range: 1 - #{tickets.count} \nPlease re-enter the index"
+        puts "Error, invalid input. Input must be Integer and in the index range: 1 - #{tickets.count} \nPlease re-enter the index (input Q to quit)"
         input = gets
       else
         res = delete_ticket.delete_ticket(tickets.at(num-1)['id'].to_i)
@@ -96,7 +96,7 @@ Select next step:\n P Print detail information of specific ticket \n D Delete sp
     while input.chomp != "Q"
       num = input.to_i
       if num <= 0 || num > tickets.count
-        puts "Error, invalid input. Input must be Integer and in the index range: 1 - #{tickets.count} \nPlease re-enter the index"
+        puts "Error, invalid input. Input must be Integer and in the index range: 1 - #{tickets.count} \nPlease re-enter the index (input Q to quit)"
       else
         puts "Current status is #{tickets.at(num-1)['status']}"
         res = update_ticket.update_ticket(tickets.at(num-1)['id'].to_i)
